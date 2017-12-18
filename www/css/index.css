@@ -1,0 +1,80 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+
+.cameraPreview {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+img {
+    position: absolute;
+    /* Prevent border showing up after button is clicked */
+    border: none;
+}
+.rectangle {
+    width: 80%;
+    height: 20%;
+    /* Center vertically & horizontally - only works with display: flex; */
+    margin: auto;
+    /* Make inner part of rectangle transparent */
+    background-color: rgba(255, 255, 255, 0);
+    /* SHADOW EFFECT darkens everything outside rectangle */
+    box-shadow: 0 0 500px 5000px rgba(0, 0, 0, 0.5);
+
+    /* COOL BORDER */
+    border-width: 20px;
+    border-style: solid;
+    /* You need to place border.png into img folder */
+    border-image: url('../img/borders/border.png') 50 round;
+
+    background-size: calc(100% + 40px) calc(100% + 40px);
+    background-position: center;
+
+    /* This one is neccessary for interaction.js resize to work */
+    touch-action: none;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.flash_btn {
+    background-size: 50px 50px;
+    width: 33px;
+    height: 33px;
+    top: 15px;
+    right: 15px;
+}
+.snap_btn {
+    background-size: 60px 60px;
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    left: 0px;  right: 0px;
+    margin: auto;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.spinner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    left: 0px;  right: 0px;
+    margin: auto;
+
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
